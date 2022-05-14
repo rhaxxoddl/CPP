@@ -11,8 +11,9 @@ OBJS		=	$(OBJ_DIR)/$(notdir $(SRCS:.cpp=.o))
 
 $(TARGET):	$(OBJS)
 		$(CXX) $(CXXFLAGS) $^ -o $@
-.cpp.o:
+$(OBJS):	$(SRCS)
 		$(CXX) $(CXXFLAGS) -c $< -o $@
+all:	$(TARGET)
 clean:
 		rm -f $(OBJS)
 fclean:	clean
