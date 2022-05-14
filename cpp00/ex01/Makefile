@@ -1,10 +1,10 @@
-TARGET		=	megaphone
+TARGET		=	phonebook
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRC_DIR		=	./src
-SRCS		=	$(SRC_DIR)/megaphone.cpp
+SRCS		=	$(SRC_DIR)/phonebook.cpp
 OBJ_DIR		=	./obj
 OBJS		=	$(OBJ_DIR)/$(notdir $(SRCS:.cpp=.o))
 
