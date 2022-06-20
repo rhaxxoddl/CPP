@@ -6,12 +6,11 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 21:02:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/05/14 21:17:22 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/20 21:32:29 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <string>
 #include <iostream>
 
 int	main()
@@ -23,9 +22,9 @@ int	main()
 	{
 		std::getline(std::cin, cmd);
 		if (!cmd.compare("ADD"))
-			phone_book.add();
+			phone_book.Add();
 		else if (!cmd.compare("SEARCH"))
-			phone_book.search();
+			phone_book.Search();
 		else if (!cmd.compare("EXIT"))
 			return (0);
 	}

@@ -2,20 +2,26 @@ TARGET		=	phonebook
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+INC			=	-I $(SRCS_DIR)
 
-SRC_DIR		=	./src
-SRCS		=	$(SRC_DIR)/phonebook.cpp
-OBJ_DIR		=	./obj
-OBJS		=	$(OBJ_DIR)/$(notdir $(SRCS:.cpp=.o))
+SRCS_DIR	=	./src/
+SRCS_NAME	=	Phonebook.cpp\
+				Contact.cpp
+SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_NAME))
+OBJS_DIR	=	./obj/
+OBJS_NAME	=	$(SRCS_NAME:.cpp=.o)
+OBJS		=	$(addprefix $(OBJS_DIR), $(OBJS_NAME))
 
-$(TARGET):	$(OBJS)
-		$(CXX) $(CXXFLAGS) $^ -o $@
+$(TARGET):	$(OBJS_DIR) $(OBJS)
+		$(CXX) $(CXXFLAGS) $(INC) $(OBJS) -o $@
 $(OBJS):	$(SRCS)
-		mkdir $(OBJ_DIR)
-		$(CXX) $(CXXFLAGS) -c $< -o $@
+		$(CXX) $(CXXFLAGS) $(INC) -c $< -o $@
+$(OBJS_DIR):
+		mkdir $(OBJS_DIR)
+
 all:	$(TARGET)
 clean:
-		rm -rf $(OBJ_DIR)
+		rm -rf $(OBJS_DIR)
 fclean:	clean
 		rm -f $(TARGET)
 

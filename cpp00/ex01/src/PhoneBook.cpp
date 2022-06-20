@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:16 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/05/14 21:18:50 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/20 21:42:12 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,76 +15,94 @@
 
 PhoneBook::PhoneBook(/* args */)
 {
-	// std::fill_n(_contact, sizeof(_contact) / sizeof(Contact), -1);
-	_lastest_contact_idx = 0;
-	_contact_count = 0;
+	mLastest_contact_idx = 0;
+	mContact_count = 0;
 }
 
 PhoneBook::~PhoneBook()
 {
 }
 
-void	input_Field(Contact contact)
+static int	InputField(Contact& contact)
 {
-	std::string temp = 0;
-
-	std::cout << "last name : ";
-	std::getline(std::cin, temp);
-	contact.setLastName(temp);
 	std::cout << "first name : ";
-	std::getline(std::cin, temp);
-	contact.setFirstName(temp);
+	std::string	firstName;
+	std::getline(std::cin, firstName);
+	if (firstName.size() == 0 || std::cin.eof() == true)
+		return (0);
+	std::cout << "last name : ";
+	std::string	lastName;
+	std::getline(std::cin, lastName);
+	if (lastName.size() == 0 || std::cin.eof() == true)
+		return (0);
+	std::string	nickname;
 	std::cout << "nickname : ";
-	std::getline(std::cin, temp);
-	contact.setNickname(temp);
+	std::getline(std::cin, nickname);
+	if (nickname.size() == 0 || std::cin.eof() == true)
+		return (0);
 	std::cout << "phone number : ";
-	std::getline(std::cin, temp);
-	contact.setPhoneNumber(temp);
-	std::cout << "darkest_secret : ";
-	std::getline(std::cin, temp);
-	contact.setDarkestSecret(temp);
+	std::string	phoneNumber;
+	std::getline(std::cin, phoneNumber);
+	if (phoneNumber.size() == 0 || std::cin.eof() == true)
+		return (0);
+	std::cout << "darkest secret : ";
+	std::string	darkestSecret;
+	std::getline(std::cin, darkestSecret);
+	if (darkestSecret.size() == 0 || std::cin.eof() == true)
+		return (0);
+	contact.SetFirstName(firstName);
+	contact.SetLastName(lastName);
+	contact.SetNickname(nickname);
+	contact.SetPhoneNumber(phoneNumber);
+	contact.SetDarkestSecret(darkestSecret);
+	return (1);
 }
 
-void	PhoneBook::add()
-{
-	std::string temp = 0;
-
-	std::cout << "last name : ";
-	std::getline(std::cin, temp); // Null값 들어왔을 때 처리
-	_contact[_lastest_contact_idx].setLastName(temp);
-	std::cout << "first name : ";
-	std::getline(std::cin, temp);
-	_contact[_lastest_contact_idx].setFirstName(temp);
-	std::cout << "nickname : ";
-	std::getline(std::cin, temp);
-	_contact[_lastest_contact_idx].setNickname(temp);
-	std::cout << "phone number : ";
-	std::getline(std::cin, temp);
-	_contact[_lastest_contact_idx].setPhoneNumber(temp);
-	std::cout << "darkest_secret : ";
-	std::getline(std::cin, temp);
-	_contact[_lastest_contact_idx].setDarkestSecret(temp);
-	if (_contact_count != 8)
-		_contact_count++;
-	_lastest_contact_idx = ++_lastest_contact_idx % (sizeof(_contact) / sizeof(Contact));
-}
-
-static std::string	limit_ten_char(std::string str)
-{
+static std::string	limit_ten_char(const std::string& str)
+{		
 	if (str.length() > 10)
-		str.resize(9);
-	return (str);
+	{
+		std::string tempString = str.substr(0, 10);
+		tempString[9] = '.';
+		return (tempString);
+	}
+	else
+		return (str);
 }
 
-static void	print_contact(Contact contact, int idx)
+void	PhoneBook::PrintAllContact()
 {
-	std::cout << idx << " | ";
-	std::cout << limit_ten_char(contact.getFirstName()) << " | ";
-	std::cout << limit_ten_char(contact.getLastName()) << " | ";
-	std::cout << limit_ten_char(contact.getNickname()) << std::endl;
+	for (int i = 0; i < mContact_count; i++)
+	{
+		Contact	tempContact = mContact[i];
+		std::cout.width(COLUMN_WIDTH);
+		std::cout << i << " | ";
+		std::cout.width(COLUMN_WIDTH);
+		std::cout << limit_ten_char(tempContact.GetFirstName()) << " | ";
+		std::cout.width(COLUMN_WIDTH);
+		std::cout << limit_ten_char(tempContact.GetLastName()) << " | ";
+		std::cout.width(COLUMN_WIDTH);
+		std::cout << limit_ten_char(tempContact.GetNickname()) << std::endl;
+	}
 }
 
-void	PhoneBook::search()
+void	PhoneBook::Add()
 {
-	for (int i = 0; ; )
+	if (!InputField(mContact[mLastest_contact_idx]))
+		return ;
+	if (mContact_count < 8)
+		mContact_count++;
+	mLastest_contact_idx = ++mLastest_contact_idx % (sizeof(mContact) / sizeof(Contact));
+}
+
+void	PhoneBook::Search()
+{
+	PrintAllContact();
+	std::cout << "표시할 연락처의 인덱스를 입력하세요 : ";
+	int idx = 0;
+	std::cin >> idx;
+	if (idx < mContact_count && idx > 0)
+		mContact[idx].PrintInfo();
+	else
+		std::cout << "[ERROR]알맞지 않은 인덱스입니다." << std::endl;
 }
