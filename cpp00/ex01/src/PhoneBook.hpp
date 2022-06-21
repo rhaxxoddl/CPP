@@ -6,14 +6,13 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:36 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/20 21:27:24 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/21 11:46:18 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 # include "Contact.hpp"
-# include <string>
 
 enum	e_command{
 	ADD,
@@ -28,7 +27,6 @@ public:
 	~PhoneBook();
 	void	Add();
 	void	Search();
-	void	Exit();
 	void	PrintAllContact();
 	
 private:

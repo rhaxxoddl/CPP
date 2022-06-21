@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:36 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/20 21:17:13 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/21 11:47:02 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,21 @@
 
 class Contact
 {
-public:
 	Contact();
 	~Contact();
+
+public:
 	void		PrintInfo() const;
 	std::string	GetFirstName() const;
 	std::string	GetLastName() const;
 	std::string	GetNickname() const;
 	std::string	GetPhoneNumber() const;
 	std::string	GetDarkestSecret() const;
-	void		SetFirstName(std::string fisrt_name);
-	void		SetLastName(std::string last_name);
+	void		SetFirstName(std::string fisrtName);
+	void		SetLastName(std::string lastName);
 	void		SetNickname(std::string nickname);
-	void		SetPhoneNumber(std::string phone_number);
-	void		SetDarkestSecret(std::string darkest_secret);
+	void		SetPhoneNumber(std::string phoneNumber);
+	void		SetDarkestSecret(std::string darkestSecret);
 
 private:
 	std::string	mFirstName;

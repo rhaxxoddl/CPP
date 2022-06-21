@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:18:32 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/20 21:31:35 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/21 11:45:58 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,27 +56,27 @@ std::string	Contact::GetDarkestSecret() const
 	return(mDarkestSecret);
 }
 
-void	Contact::SetFirstName(std::string first_name)
+void	Contact::SetFirstName(std::string firstName)
 {
-	mFirstName = first_name;
+	mFirstName = firstName;
 }
 
-void	Contact::SetLastName(std::string first_name)
+void	Contact::SetLastName(std::string lastName)
 {
-	mFirstName = first_name;
+	mLastName = lastName;
 }
 
-void	Contact::SetNickname(std::string first_name)
+void	Contact::SetNickname(std::string nickname)
 {
-	mFirstName = first_name;
+	mNickname = nickname;
 }
 
-void	Contact::SetPhoneNumber(std::string first_name)
+void	Contact::SetPhoneNumber(std::string phoneNumber)
 {
-	mFirstName = first_name;
+	mPhoneNumber = phoneNumber;
 }
 
-void	Contact::SetDarkestSecret(std::string first_name)
+void	Contact::SetDarkestSecret(std::string darkestSecret)
 {
-	mFirstName = first_name;
+	mDarkestSecret = darkestSecret;
 }
