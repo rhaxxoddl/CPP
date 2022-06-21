@@ -14,10 +14,10 @@ OBJS_NAME	=	$(SRCS_NAME:.cpp=.o)
 OBJS		=	$(addprefix $(OBJS_DIR), $(OBJS_NAME))
 
 $(TARGET):	$(OBJS_DIR) $(OBJS)
-		$(CXX) $(CXXFLAGS) $(INC) $(OBJS) -o $@
+		$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.cpp
-		$(CXX) $(CXXFLAGS) $(INC) -c $< -o $@
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJS_DIR):
 		mkdir $(OBJS_DIR)
@@ -27,5 +27,7 @@ clean:
 		rm -rf $(OBJS_DIR)
 fclean:	clean
 		rm -f $(TARGET)
+re: fclean
+	$(MAKE) all
 
 .PHONY:	clean, fclean, re, all
