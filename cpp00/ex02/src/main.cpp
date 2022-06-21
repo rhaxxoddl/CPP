@@ -1,31 +1,19 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 21:02:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 11:46:00 by sanjeon          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "PhoneBook.hpp"
 #include <iostream>
+#include <ctime>
+#include <iomanip>
 
-int	main()
+int main()
 {
-	PhoneBook phoneBook;
-	std::string cmd;
+	time_t	t;
+	tm	*timeInfo;
 
-	while (1)
-	{
-		std::getline(std::cin, cmd);
-		if (!cmd.compare("ADD"))
-			phoneBook.Add();
-		else if (!cmd.compare("SEARCH"))
-			phoneBook.Search();
-		else if (!cmd.compare("EXIT"))
-			return (0);
-	}
+	time(&t);
+	timeInfo = localtime(&t);
+	std::cout << "[" << timeInfo->tm_year + 1900
+				<< std::setw(2) << std::setfill('0') << timeInfo->tm_mon + 1
+				<< std::setw(2) << std::setfill('0') << timeInfo->tm_mday
+				<< "_"
+				<< std::setw(2) << std::setfill('0') << timeInfo->tm_hour
+				<< std::setw(2) << std::setfill('0') << timeInfo->tm_min
+				<< std::setw(2) << std::setfill('0') << timeInfo->tm_sec << "]" << std::endl;
 }

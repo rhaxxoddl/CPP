@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:53:14 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 11:53:21 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/21 17:35:26 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		main( void ) {
 	ints_t::iterator	wit_end		= withdrawals.end();
 
 	Account::displayAccountsInfos();
-	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
+	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) ); // ??왜 멤버함수는 레퍼런스로 넘겨줘야 하는가?
 
 	for ( acc_int_t it( acc_begin, dep_begin );
 		  it.first != acc_end && it.second != dep_end;

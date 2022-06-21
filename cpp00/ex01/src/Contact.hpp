@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:36 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 11:47:02 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/21 20:37:10 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 
 class Contact
 {
+public:
 	Contact();
 	~Contact();
-
-public:
 	void		PrintInfo() const;
 	std::string	GetFirstName() const;
 	std::string	GetLastName() const;

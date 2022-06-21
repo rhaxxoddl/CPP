@@ -6,7 +6,7 @@ INC			=	-I $(SRCS_DIR)
 
 SRCS_DIR	=	./src/
 SRCS_NAME	=	main.cpp\
-				Phonebook.cpp\
+				PhoneBook.cpp\
 				Contact.cpp
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS_DIR	=	./obj/
@@ -15,8 +15,10 @@ OBJS		=	$(addprefix $(OBJS_DIR), $(OBJS_NAME))
 
 $(TARGET):	$(OBJS_DIR) $(OBJS)
 		$(CXX) $(CXXFLAGS) $(INC) $(OBJS) -o $@
-$(OBJS):	$(SRCS)
+
+$(OBJS_DIR)%.o : $(SRCS_DIR)%.cpp
 		$(CXX) $(CXXFLAGS) $(INC) -c $< -o $@
+
 $(OBJS_DIR):
 		mkdir $(OBJS_DIR)
 

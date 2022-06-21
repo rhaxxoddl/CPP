@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:16 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 11:46:06 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/21 21:13:37 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ void	PhoneBook::PrintAllContact()
 void	PhoneBook::Add()
 {
 	if (!InputField(mContact[mLastest_contact_idx]))
+	{
+		std::cout << "[ERROR]정보를 입력하지 않았습니다." << std::endl;
 		return ;
+	}
 	if (mContact_count < 8)
 		mContact_count++;
 	mLastest_contact_idx = ++mLastest_contact_idx % (sizeof(mContact) / sizeof(Contact));
@@ -101,7 +104,7 @@ void	PhoneBook::Search()
 	std::cout << "표시할 연락처의 인덱스를 입력하세요 : ";
 	int idx = 0;
 	std::cin >> idx;
-	if (idx < mContact_count && idx > 0)
+	if (idx < mContact_count && idx >= 0)
 		mContact[idx].PrintInfo();
 	else
 		std::cout << "[ERROR]알맞지 않은 인덱스입니다." << std::endl;

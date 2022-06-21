@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 21:02:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 11:46:00 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/21 21:14:28 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	main()
 			phoneBook.Search();
 		else if (!cmd.compare("EXIT"))
 			return (0);
+		else
+			std::cout << "[ERROR]정의되지 않은 명령어입니다." << std::endl;
 	}
 }
