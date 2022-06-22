@@ -1,6 +1,6 @@
 TARGET		=	phonebook
 
-CXX			=	c++
+CXX			=	c++ -g -fsanitize=address
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 INC			=	-I $(SRCS_DIR)
 

@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:52:51 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/22 13:51:55 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 18:55:18 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Account::Account(int initial_deposit)
 	_amount = initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
+	_totalAmount += initial_deposit;
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "created" << std::endl;
@@ -105,13 +106,13 @@ bool	Account::makeWithdrawal( int withdrawal )
 	if (withdrawal > 0)
 	{
 		int	p_amount = _amount;
+		_displayTimestamp();
 		if (_amount >= withdrawal)
 		{
 			_amount -= withdrawal;
 			_totalAmount -= withdrawal;
 			_totalNbWithdrawals++;
 			_nbWithdrawals++;
-			_displayTimestamp();
 			std::cout << "index:" << _accountIndex << ";";
 			std::cout << "p_amount:" << p_amount << ";";
 			std::cout << "withdrawal:" << withdrawal << ";";
@@ -147,17 +148,17 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	time_t	t;
-	tm	*timeInfo;
+	// time_t	t;
+	// tm	*timeInfo;
 
-	time(&t);
-	timeInfo = localtime(&t);
-	std::cout << "[" << timeInfo->tm_year + 1900
-				<< std::setw(2) << std::setfill('0') << timeInfo->tm_mon + 1
-				<< std::setw(2) << std::setfill('0') << timeInfo->tm_mday
-				<< "_"
-				<< std::setw(2) << std::setfill('0') << timeInfo->tm_hour
-				<< std::setw(2) << std::setfill('0') << timeInfo->tm_min
-				<< std::setw(2) << std::setfill('0') << timeInfo->tm_sec << "]";
-	// std::cout << "[19920104_091532] ";
+	// time(&t);
+	// timeInfo = localtime(&t);
+	// std::cout << "[" << timeInfo->tm_year + 1900
+	// 			<< std::setw(2) << std::setfill('0') << timeInfo->tm_mon + 1
+	// 			<< std::setw(2) << std::setfill('0') << timeInfo->tm_mday
+	// 			<< "_"
+	// 			<< std::setw(2) << std::setfill('0') << timeInfo->tm_hour
+	// 			<< std::setw(2) << std::setfill('0') << timeInfo->tm_min
+	// 			<< std::setw(2) << std::setfill('0') << timeInfo->tm_sec << "]";
+	std::cout << "[19920104_091532] ";
 }

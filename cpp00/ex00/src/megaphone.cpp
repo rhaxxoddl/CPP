@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 21:23:16 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/05/14 14:58:56 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 19:03:24 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			str = argv[1];
-			for (unsigned long j = 0; j < str.length(); j++)
+			str = argv[i];
+			for (unsigned int j = 0; j < str.length(); j++)
 				str.at(j) = toupper(str.at(j));
 			std::cout << str;
 		}

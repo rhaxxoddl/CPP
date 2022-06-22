@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:16 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/22 13:39:19 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 19:10:20 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,7 @@ void	PhoneBook::PrintAllContact()
 void	PhoneBook::Add()
 {
 	if (!InputField(mContact[mLastest_contact_idx]))
-	{
-		std::cout << "[ERROR]정보를 입력하지 않았습니다." << std::endl;
 		return ;
-	}
 	if (mContact_count < 8)
 		mContact_count++;
 	mLastest_contact_idx = ++mLastest_contact_idx % (sizeof(mContact) / sizeof(Contact));
@@ -102,8 +99,17 @@ void	PhoneBook::Search()
 {
 	PrintAllContact();
 	std::cout << "표시할 연락처의 인덱스를 입력하세요 : ";
-	int idx = 0;
-	std::cin >> idx;
+	std::string	strIdx;
+	std::getline(std::cin, strIdx);
+	if (std::cin.eof() == true)
+		return ;
+	for (unsigned long i = 0; i < strIdx.length(); i++)
+		if (!isdigit(strIdx.at(i)))
+		{
+			std::cout << "[ERROR]알맞지 않은 인덱스입니다." << std::endl;
+			return ;
+		}
+	const int	idx = std::stoi(strIdx);
 	if (idx < mContact_count && idx >= 0)
 		mContact[idx].PrintInfo();
 	else

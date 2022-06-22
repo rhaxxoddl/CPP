@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 21:02:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 21:14:28 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 18:46:04 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main()
 	while (1)
 	{
 		std::getline(std::cin, cmd);
+		if (std::cin.eof() == true)
+			return (0);
 		if (!cmd.compare("ADD"))
 			phoneBook.Add();
 		else if (!cmd.compare("SEARCH"))
