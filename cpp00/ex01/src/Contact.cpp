@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:18:32 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 11:45:58 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 13:42:46 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 
 Contact::Contact(void)
 {
+	mFirstName.clear();
+	mLastName.clear();
+	mNickname.clear();
+	mPhoneNumber.clear();
+	mDarkestSecret.clear();
 }
 
 Contact::~Contact()

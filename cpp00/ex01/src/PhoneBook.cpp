@@ -6,14 +6,14 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:16 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 21:13:37 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 13:39:19 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 
-PhoneBook::PhoneBook(/* args */)
+PhoneBook::PhoneBook()
 {
 	mLastest_contact_idx = 0;
 	mContact_count = 0;

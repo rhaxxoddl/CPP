@@ -6,19 +6,13 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:11:36 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 11:46:18 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 13:43:55 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 # include "Contact.hpp"
-
-enum	e_command{
-	ADD,
-	SEARCH,
-	EXIT,
-};
 
 class PhoneBook
 {

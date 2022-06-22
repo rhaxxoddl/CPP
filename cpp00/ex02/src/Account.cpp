@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:52:51 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/21 22:24:53 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/22 13:51:55 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-Account::Account(int initial_deposit) // 객체가 처음 생성되면 변수는 0으로 초기화 되어 있는가?
-{									// 아니라면 객체 생성할 때 모두 초기화해야 함. && static 변수도 초기화 해야 하는지?
+Account::Account(int initial_deposit)
+{
 	_displayTimestamp();
 	_accountIndex = _nbAccounts++;
 	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "created" << std::endl;
@@ -33,6 +35,9 @@ Account::Account(void)
 {
 	_displayTimestamp();
 	_accountIndex = _nbAccounts;
+	_amount = 0;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "created;" << std::endl;
@@ -75,7 +80,7 @@ void	Account::displayAccountsInfos( void )
 	
 }
 
-void	Account::makeDeposit( int deposit ) // 입금
+void	Account::makeDeposit( int deposit )
 {
 	if (deposit > 0)
 	{
@@ -95,7 +100,7 @@ void	Account::makeDeposit( int deposit ) // 입금
 		std::cout << "0보다 큰 수만 입금할 수 있습니다." << std::endl;
 }
 
-bool	Account::makeWithdrawal( int withdrawal ) // 인출
+bool	Account::makeWithdrawal( int withdrawal )
 {
 	if (withdrawal > 0)
 	{
@@ -126,7 +131,7 @@ bool	Account::makeWithdrawal( int withdrawal ) // 인출
 	return (false);
 }
 
-int		Account::checkAmount( void ) const //총액
+int		Account::checkAmount( void ) const
 {
 	return (_amount);
 }
@@ -154,4 +159,5 @@ void	Account::_displayTimestamp( void )
 				<< std::setw(2) << std::setfill('0') << timeInfo->tm_hour
 				<< std::setw(2) << std::setfill('0') << timeInfo->tm_min
 				<< std::setw(2) << std::setfill('0') << timeInfo->tm_sec << "]";
+	// std::cout << "[19920104_091532] ";
 }
