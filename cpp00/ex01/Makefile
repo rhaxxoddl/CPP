@@ -1,8 +1,7 @@
 TARGET		=	phonebook
 
-CXX			=	c++ -g -fsanitize=address
+CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-INC			=	-I $(SRCS_DIR)
 
 SRCS_DIR	=	./src/
 SRCS_NAME	=	main.cpp\
