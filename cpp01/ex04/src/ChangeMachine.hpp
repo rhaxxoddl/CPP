@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ChangeMachine.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanjeon <sanjeon@student.42.kr>            +#+  +:+       +#+        */
+/*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:47:36 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/24 15:39:34 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/24 16:05:12 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ class ChangeMachine
 private:
 	std::string mBefore;
 	std::string mAfter;
-	std::string	ProcessString(std::string& base);
+	void	ProcessString(std::string& base);
 
 public:
 	ChangeMachine(std::string before, std::string after);
-	void ConvertFile(char *fileName, std::string &line);
+	void ConvertFile(char *fileName);
 	~ChangeMachine();
 };
 
