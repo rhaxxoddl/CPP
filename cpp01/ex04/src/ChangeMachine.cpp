@@ -6,14 +6,11 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:11:27 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/24 16:53:26 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/26 22:05:57 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ChangeMachine.hpp"
-#include <fstream>
-#include <string>
-#include <iostream>
 
 ChangeMachine::ChangeMachine(std::string before, std::string after) : mBefore(before), mAfter(after)
 {
@@ -30,7 +27,7 @@ void	ChangeMachine::ProcessString(std::string& base)
 	{
 		base.erase(found, mBefore.length());
 		base.insert(found, mAfter);
-		found = base.find(mBefore);
+		found = base.find(mBefore, found + mAfter.length());
 	}
 }
 
@@ -51,11 +48,14 @@ void ChangeMachine::ConvertFile(char *fileName)
 		std::cerr << "[ERROR]Failed to open file." << std::endl;
 		exit(1);
 	}
-	for (std::string str; std::getline(fin, str);)
-	{
-		ProcessString(str);
-		fout << str << std::endl;
-	}
+	std::string	allString;
+	fin.seekg(0, std::ios::end);
+	int	size = fin.tellg();
+	fin.seekg(0, std::ios::beg);
+	allString.resize(size);
+	fin.read(&allString[0], size);
+	ProcessString(allString);
+	fout << allString;
 	fin.close();
 	fout.close();
 }

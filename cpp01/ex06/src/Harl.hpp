@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 17:05:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/26 20:42:49 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/26 20:05:11 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@ private:
 	std::string	mInfo;
 	std::string	mWarning;
 	std::string	mError;
+	int			mMinimumLevel;
 	std::string	aCmd[4];
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
+	void	debug();
+	void	info();
+	void	warning();
+	void	error();
+	void	besides();
+	int		searchLevel(std::string level);
 public:
-	void	(Harl::*aFunctionArray[4])(void);
+	void	(Harl::*aFunctionArray[5])();
 	Harl();
-	void	complain(std::string level);
+	Harl(std::string minimumLevel);
+	void	complain();
 	~Harl();
 };
 

@@ -6,13 +6,15 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:47:36 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/24 16:05:12 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/26 21:35:44 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHANGEMACHINE_HPP
 #define CHANGEMACHINE_HPP
 #include <string>
+#include <fstream>
+#include <iostream>
 
 class ChangeMachine
 {
