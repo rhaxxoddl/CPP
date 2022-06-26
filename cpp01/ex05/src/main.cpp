@@ -6,22 +6,21 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:30:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/26 17:31:24 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/26 17:49:31 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ChangeMachine.hpp"
-#include <iostream>
+#include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	
-	if (argc != 4)
+	Harl	harl;
+	std::string	input;
+	while (1)
 	{
-		std::cerr << "[ERROR]Invalid parameters!" << std::endl;
-		return 1;
+		if (std::getline(std::cin, input).fail() || std::cin.eof())
+			return (1);
+		harl.complain(input); 
 	}
-	ChangeMachine	cm(argv[2], argv[3]);
-	cm.ConvertFile(argv[1]);
 	return 0;
 }

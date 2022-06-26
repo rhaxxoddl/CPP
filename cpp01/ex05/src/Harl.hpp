@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 20:30:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/26 17:31:24 by sanjeon          ###   ########.fr       */
+/*   Created: 2022/06/24 17:05:02 by sanjeon           #+#    #+#             */
+/*   Updated: 2022/06/26 17:31:52 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ChangeMachine.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
+#include <string>
 #include <iostream>
 
-int main(int argc, char **argv)
+#define	NUM_OF_CMD	4
+
+class Harl
 {
-	
-	if (argc != 4)
-	{
-		std::cerr << "[ERROR]Invalid parameters!" << std::endl;
-		return 1;
-	}
-	ChangeMachine	cm(argv[2], argv[3]);
-	cm.ConvertFile(argv[1]);
-	return 0;
-}
+private:
+	std::string	mDebug;
+	std::string	mInfo;
+	std::string	mWarning;
+	std::string	mError;
+	std::string	aCmd[4];
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+public:
+	void	(Harl::*aFunctionArray[4])(void);
+	Harl();
+	void	complain(std::string level);
+	~Harl();
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:27:01 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/22 21:48:14 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/26 19:18:44 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Zombie::Zombie()
 {
-	mName = "unknown";
+	mName = "";
 }
 
 Zombie::Zombie( std::string name)
