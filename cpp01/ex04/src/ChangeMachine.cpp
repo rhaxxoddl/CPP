@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 14:11:27 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/26 22:05:57 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/27 12:25:11 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,28 @@ void ChangeMachine::ConvertFile(char *fileName)
 		exit(1);
 	}
 	std::string	allString;
-	fin.seekg(0, std::ios::end);
+	if (fin.seekg(std::ios::end).fail())
+	{
+		fin.close();
+		fout.close();
+		std::cerr << "[ERROR]Failed to seekg()." << std::endl;
+		exit(1);
+	}
 	int	size = fin.tellg();
-	fin.seekg(0, std::ios::beg);
+	if (fin.fail())
+	{
+		fin.close();
+		fout.close();
+		std::cerr << "[ERROR]Failed to tellg()." << std::endl;
+		exit(1);
+	}
+	if (fin.seekg(std::ios::beg).fail())
+	{
+		fin.close();
+		fout.close();
+		std::cerr << "[ERROR]Failed to seekg()." << std::endl;
+		exit(1);
+	}
 	allString.resize(size);
 	fin.read(&allString[0], size);
 	ProcessString(allString);
