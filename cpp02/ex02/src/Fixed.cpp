@@ -6,55 +6,24 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:27:01 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/29 21:56:20 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/30 11:26:48 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
-{
-	// std::cout << "Default constructor called" << std::endl;
-	mFixedPointValue = 0;
-}
+Fixed::Fixed(){mFixedPointValue = 0;}
+Fixed::Fixed(Fixed const &origin){mFixedPointValue = origin.getRawBits();}
+Fixed::Fixed(int const num){mFixedPointValue = num << mFractionalBitsValue;}
+Fixed::Fixed(float const num){mFixedPointValue = roundf(num * pow(2, mFractionalBitsValue));}
 
-Fixed::Fixed(Fixed const &origin)
-{
-	// std::cout << "Copy constructor called" << std::endl;
-	mFixedPointValue = origin.getRawBits();
-}
-Fixed::Fixed(int const num)
-{
-	mFixedPointValue = num << mFractionalBitsValue;
-}
+int Fixed::getRawBits(void) const {return mFixedPointValue;}
 
-Fixed::Fixed(float const num)
-{
-	mFixedPointValue = roundf(num * pow(2, mFractionalBitsValue));
-}
+void Fixed::setRawBits( int const raw) {mFixedPointValue = raw;}
 
-int Fixed::getRawBits(void) const
-{
-	// std::cout << "getRawBits member function called : " << std::endl;
-	return mFixedPointValue;
-}
+float Fixed::toFloat( void ) const {return mFixedPointValue / pow(2, mFractionalBitsValue);}
 
-void Fixed::setRawBits( int const raw)
-{
-	mFixedPointValue = raw;
-}
-
-float Fixed::toFloat( void ) const
-{
-	// std::cout << "Float constructor called" << std::endl;
-	return mFixedPointValue / pow(2, mFractionalBitsValue);
-}
-
-int Fixed::toInt( void ) const
-{
-	// std::cout << "Int constructor called" << std::endl;
-	return roundf(mFixedPointValue >> mFractionalBitsValue);
-}
+int Fixed::toInt( void ) const {return roundf(mFixedPointValue >> mFractionalBitsValue);}
 
 Fixed & Fixed::min(Fixed &a, Fixed &b)
 {
@@ -90,7 +59,6 @@ const Fixed & Fixed::max(const Fixed &a, const Fixed &b)
 
 Fixed & Fixed::operator=(const Fixed &origin)
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	this->setRawBits(origin.getRawBits());
 	return *this;
 }
@@ -121,10 +89,7 @@ Fixed Fixed::operator--(int)
 	return temp;
 }
 
-Fixed::~Fixed()
-{
-	// std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed(){}
 
 std::ostream &operator<<(std::ostream &out, const Fixed &f)
 {
@@ -132,52 +97,22 @@ std::ostream &operator<<(std::ostream &out, const Fixed &f)
 	return out;
 }
 
-bool operator>(const Fixed &l, const Fixed &r)
-{
-	return l.getRawBits() > r.getRawBits();
-}
+bool operator>(const Fixed &l, const Fixed &r){return l.getRawBits() > r.getRawBits();}
 
-bool operator<(const Fixed &l, const Fixed &r)
-{
-	return l.getRawBits() < r.getRawBits();
-}
+bool operator<(const Fixed &l, const Fixed &r){return l.getRawBits() < r.getRawBits();}
 
-bool operator>=(const Fixed &l, const Fixed &r)
-{
-	return l.getRawBits() >= r.getRawBits();
-}
+bool operator>=(const Fixed &l, const Fixed &r){return l.getRawBits() >= r.getRawBits();}
 
-bool operator<=(const Fixed &l, const Fixed &r)
-{
-	return l.getRawBits() <= r.getRawBits();	
-}
+bool operator<=(const Fixed &l, const Fixed &r){return l.getRawBits() <= r.getRawBits();}
 
-bool operator==(const Fixed &l, const Fixed &r)
-{
-	return l.getRawBits() == r.getRawBits();	
-}
+bool operator==(const Fixed &l, const Fixed &r){return l.getRawBits() == r.getRawBits();}
 
-bool operator!=(const Fixed &l, const Fixed &r)
-{
-	return l.getRawBits() != r.getRawBits();	
-}
+bool operator!=(const Fixed &l, const Fixed &r){return l.getRawBits() != r.getRawBits();}
 
-Fixed operator+(const Fixed &l, const Fixed &r)
-{
-	return Fixed(l.toFloat() + r.toFloat());
-}
+Fixed operator+(const Fixed &l, const Fixed &r){return Fixed(l.toFloat() + r.toFloat());}
 
-Fixed operator-(const Fixed &l, const Fixed &r)
-{
-	return Fixed(l.toFloat() - r.toFloat());
-}
+Fixed operator-(const Fixed &l, const Fixed &r){return Fixed(l.toFloat() - r.toFloat());}
 
-Fixed operator*(const Fixed &l, const Fixed &r)
-{
-	return Fixed(l.toFloat() * r.toFloat());
-}
+Fixed operator*(const Fixed &l, const Fixed &r){return Fixed(l.toFloat() * r.toFloat());}
 
-Fixed operator/(const Fixed &l, const Fixed &r)
-{
-	return Fixed(l.toFloat() / r.toFloat());
-}
+Fixed operator/(const Fixed &l, const Fixed &r){return Fixed(l.toFloat() / r.toFloat());}
