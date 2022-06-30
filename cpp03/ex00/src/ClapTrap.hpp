@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:22:42 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/30 17:58:55 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/30 20:19:00 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ public:
 	void setAttackDamage(unsigned int attackDamage);
 	ClapTrap & operator=(ClapTrap &src);
 	~ClapTrap();
+
 private:
 	enum {MAX_HP = 10, MAX_EP = 10, DEFAULT_AD = 0};
 	std::string mName;

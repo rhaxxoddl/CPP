@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:27:01 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/30 20:35:00 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/30 20:35:20 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap()
 	mHitPoints = MAX_HP;
 	mEnergyPoints = MAX_EP;
 	mAttackDamage = DEFAULT_AD;
-	std::cout << mName << "'s Constructor" << std::endl;
+	std::cout << "ClapTrap Constructor(void) called" << std::endl;
 };
 
 ClapTrap::ClapTrap(ClapTrap &src)
@@ -27,7 +27,8 @@ ClapTrap::ClapTrap(ClapTrap &src)
 	mHitPoints = src.getHitPoints();
 	mEnergyPoints = src.getEnergyPoints();
 	mAttackDamage = src.getAttackDamage();
-	std::cout << mName << "'s Constructor" << std::endl;
+	std::cout << "ClapTrap Constructor(ClapTrap) called" << std::endl;
+
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -36,7 +37,7 @@ ClapTrap::ClapTrap(std::string name)
 	mHitPoints = MAX_HP;
 	mEnergyPoints = MAX_EP;
 	mAttackDamage = DEFAULT_AD;
-	std::cout << mName << "'s Constructor" << std::endl;
+	std::cout << "ClapTrap Constructor(string) called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -94,4 +95,4 @@ ClapTrap & ClapTrap::operator=(ClapTrap &src)
 	return *this;
 }
 
-ClapTrap::~ClapTrap(){std::cout << mName << "'s Destructor" << std::endl;}
+ClapTrap::~ClapTrap(){std::cout << "Destructor called" << std::endl;}

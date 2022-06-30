@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 17:28:10 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/30 20:32:15 by sanjeon          ###   ########.fr       */
+/*   Created: 2022/06/30 20:15:26 by sanjeon           #+#    #+#             */
+/*   Updated: 2022/06/30 20:32:54 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << "ScavTrap Constructor(void) called" << std::endl;
+	std::cout << "FragTrap Constructor(void) called" << std::endl;
 	setName("unknown");
 	setHitPoints(MAX_HP);
 	setEnergyPoints(MAX_EP);
 	setAttackDamage(DEFAULT_AD);
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap Constructor(string) called" << std::endl;
+	std::cout << "FragTrap Constructor(string) called" << std::endl;
 	setHitPoints(MAX_HP);
 	setEnergyPoints(MAX_EP);
 	setAttackDamage(DEFAULT_AD);
 }
 
-ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src)
+FragTrap::FragTrap(FragTrap &src) : ClapTrap(src)
 {
-	std::cout << "ScavTrap Constructor(ScavTrap) called" << std::endl;
+	std::cout << "FragTrap Constructor(FragTrap) called" << std::endl;
 }
 
-void ScavTrap::beRepaired(unsigned int amount)
+void FragTrap::beRepaired(unsigned int amount)
 {
 	if (getHitPoints() > 0 && getEnergyPoints() > 0)
 	{
@@ -46,9 +46,9 @@ void ScavTrap::beRepaired(unsigned int amount)
 	}
 }
 
-void ScavTrap::guardGate(){std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;}
+void FragTrap::highFivesGuys(){std::cout << "FragTrap is now in Gate keeper mode" << std::endl;}
 
-ScavTrap & ScavTrap::operator=(ScavTrap &src)
+FragTrap & FragTrap::operator=(FragTrap &src)
 {
 	setName(src.getName());
 	setHitPoints(src.getHitPoints());
@@ -57,4 +57,4 @@ ScavTrap & ScavTrap::operator=(ScavTrap &src)
 	return *this;
 }
 
-ScavTrap::~ScavTrap(){std::cout << "ScavTrap Destructor called" << std::endl;}
+FragTrap::~FragTrap(){std::cout << "FragTrap Destructor called" << std::endl;}
