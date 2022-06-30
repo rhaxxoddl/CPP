@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:27:01 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/30 11:26:48 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/06/30 12:45:44 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ const Fixed & Fixed::max(const Fixed &a, const Fixed &b)
 
 Fixed & Fixed::operator=(const Fixed &origin)
 {
-	this->setRawBits(origin.getRawBits());
+	mFixedPointValue = origin.getRawBits();
 	return *this;
 }
 
