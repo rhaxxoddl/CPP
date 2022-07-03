@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:15:26 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/30 20:32:54 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/03 19:23:08 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::FragTrap(FragTrap &src) : ClapTrap(src)
 {
 	std::cout << "FragTrap Constructor(FragTrap) called" << std::endl;
+}
+
+void FragTrap::attack(const std::string& target)
+{
+	if (getHitPoints() > 0 && getEnergyPoints() > 0)
+	{
+		std::cout << "FragTrap " << getName() << " attacks "
+		<< target << ", causing " << getAttackDamage()
+		<< " points of damage!" << std::endl;
+		setEnergyPoints(getEnergyPoints() - 1);
+	}
 }
 
 void FragTrap::beRepaired(unsigned int amount)

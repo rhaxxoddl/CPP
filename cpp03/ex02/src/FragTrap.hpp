@@ -2,12 +2,15 @@
 # define FRAGTRAP_HPP
 # include "ClapTrap.hpp"
 
+class ClapTrap;
+
 class FragTrap : public ClapTrap
 {
 public:
 	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(FragTrap &src);
+	void attack(const std::string& target);
 	void beRepaired(unsigned int amount);
 	FragTrap & operator=(FragTrap &src);
 	~FragTrap();

@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:28:10 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/30 20:32:15 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/03 19:28:06 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src)
 {
 	std::cout << "ScavTrap Constructor(ScavTrap) called" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (getHitPoints() > 0 && getEnergyPoints() > 0)
+	{
+		std::cout << "ScavTrap " << getName() << " attacks "
+		<< target << ", causing " << getAttackDamage()
+		<< " points of damage!" << std::endl;
+		setEnergyPoints(getEnergyPoints() - 1);
+	}
 }
 
 void ScavTrap::beRepaired(unsigned int amount)
