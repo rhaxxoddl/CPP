@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:28:10 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/06 19:32:04 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/06 21:30:55 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ ScavTrap::ScavTrap() : ClapTrap()
 	setHitPoints(MAX_HP);
 	setEnergyPoints(MAX_EP);
 	setAttackDamage(DEFAULT_AD);
+	setMaxHitPoints(MAX_HP);
+	setMaxEnergyPoints(MAX_EP);
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -27,6 +29,15 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	setHitPoints(MAX_HP);
 	setEnergyPoints(MAX_EP);
 	setAttackDamage(DEFAULT_AD);
+	setMaxHitPoints(MAX_HP);
+	setMaxEnergyPoints(MAX_EP);
+}
+
+ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src)
+{
+	std::cout << "ScavTrap Constructor(ScavTrap) called" << std::endl;
+	setMaxHitPoints(MAX_HP);
+	setMaxEnergyPoints(MAX_EP);
 }
 
 void ScavTrap::attack(const std::string& target)
@@ -38,11 +49,6 @@ void ScavTrap::attack(const std::string& target)
 		<< " points of damage!" << std::endl;
 		setEnergyPoints(getEnergyPoints() - 1);
 	}
-}
-
-ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src)
-{
-	std::cout << "ScavTrap Constructor(ScavTrap) called" << std::endl;
 }
 
 void ScavTrap::guardGate(){std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;}
