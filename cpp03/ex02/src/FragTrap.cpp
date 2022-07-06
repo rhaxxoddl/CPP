@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:15:26 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/03 19:23:08 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/06 19:32:10 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,6 @@ void FragTrap::attack(const std::string& target)
 		std::cout << "FragTrap " << getName() << " attacks "
 		<< target << ", causing " << getAttackDamage()
 		<< " points of damage!" << std::endl;
-		setEnergyPoints(getEnergyPoints() - 1);
-	}
-}
-
-void FragTrap::beRepaired(unsigned int amount)
-{
-	if (getHitPoints() > 0 && getEnergyPoints() > 0)
-	{
-		if (amount + getHitPoints() > MAX_HP)
-			setHitPoints(MAX_HP);
-		else
-			setHitPoints(getHitPoints() + amount);
 		setEnergyPoints(getEnergyPoints() - 1);
 	}
 }

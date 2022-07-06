@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:28:10 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/03 19:28:06 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/06 19:31:48 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,6 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << "ScavTrap " << getName() << " attacks "
 		<< target << ", causing " << getAttackDamage()
 		<< " points of damage!" << std::endl;
-		setEnergyPoints(getEnergyPoints() - 1);
-	}
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (getHitPoints() > 0 && getEnergyPoints() > 0)
-	{
-		if (amount + getHitPoints() > MAX_HP)
-			setHitPoints(MAX_HP);
-		else
-			setHitPoints(getHitPoints() + amount);
 		setEnergyPoints(getEnergyPoints() - 1);
 	}
 }
