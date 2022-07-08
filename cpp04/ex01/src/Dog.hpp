@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:22:42 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/04 14:29:54 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 21:41:18 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Dog& operator=(Dog& src);
 	~Dog();
 private:
-	Brain* mBrain;
+	// Brain* mBrain;
 };
 
  #endif

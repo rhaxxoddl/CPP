@@ -6,19 +6,52 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 21:29:41 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/04 14:40:54 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 21:54:15 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-Brain::Brain()
+std::string randomString(void)
 {
-	const std::string dogCry = "the owner is so nice";
-	for (int i = 0; i < 100; i++)
-		mIdeas[i] = 
+	srand((unsigned int)time(NULL));
+	unsigned int r = rand() % 2;
+	std::string str;
+	switch (r)
+	{
+	case 0:
+		str = DOGCRY;
+		break;
+	
+	case 1:
+		str = CATCRY;
+		break;
+
+	default:
+		std::cerr << "rand() error" << std::endl;
+		break;
+	}
+	return str;
 }
 
-Brain::Brain(Brain& src);
-Brain& Brain::operator=(Brain &src);
-Brain::~Brain();
+Brain::Brain()
+{
+	for (int i = 0; i < 100; i++)
+		mIdeas[i] = randomString();
+}
+
+Brain::Brain(Brain& src)
+{
+	(void)src;
+}
+
+Brain& Brain::operator=(Brain &src)
+{
+	(void)src;
+	return *this;
+}
+
+Brain::~Brain()
+{
+	
+}

@@ -8,7 +8,8 @@ SRCS_DIR	=	./src/
 SRCS_NAME	=	main.cpp\
 				Animal.cpp\
 				Dog.cpp\
-				Cat.cpp
+				Cat.cpp\
+				Brain.cpp
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS_DIR	=	./obj/
 OBJS_NAME	=	$(SRCS_NAME:.cpp=.o)

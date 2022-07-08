@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:22:42 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/03 22:22:00 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 21:41:22 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Cat& operator=(Cat &);
 	~Cat();
 private:
-	Brain* mBrain;
+	// Brain* mBrain;
 };
 
  #endif
