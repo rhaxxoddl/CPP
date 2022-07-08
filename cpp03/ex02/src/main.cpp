@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:30:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/06/30 20:21:34 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 12:51:39 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main( void )
 	PrintInfo(d);
 	
 	std::cout << "================ Modify name ================" << std::endl;
+	a.setName("A");
 	c.setName("C");
 	d.setName("D");
 	

@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:28:10 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/06 21:32:34 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 15:08:03 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,31 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap Constructor(void) called" << std::endl;
-	setName("unknown");
-	setHitPoints(MAX_HP);
-	setEnergyPoints(MAX_EP);
-	setAttackDamage(DEFAULT_AD);
-	setMaxHitPoints(MAX_HP);
-	setMaxEnergyPoints(MAX_EP);
+	mHitPoints = MAX_HP;
+	mEnergyPoints = MAX_EP;
+	mAttackDamage = DEFAULT_AD;
+	mMaxHitPoints = MAX_HP;
+	mMaxEnergyPoints = MAX_EP;
+	mDefaultAttackDamage = DEFAULT_AD;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap Constructor(string) called" << std::endl;
-	setHitPoints(MAX_HP);
-	setEnergyPoints(MAX_EP);
-	setAttackDamage(DEFAULT_AD);
-	setMaxHitPoints(MAX_HP);
-	setMaxEnergyPoints(MAX_EP);
+	mHitPoints = MAX_HP;
+	mEnergyPoints = MAX_EP;
+	mAttackDamage = DEFAULT_AD;
+	mMaxHitPoints = MAX_HP;
+	mMaxEnergyPoints = MAX_EP;
+	mDefaultAttackDamage = DEFAULT_AD;
 }
 
 ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src)
 {
 	std::cout << "ScavTrap Constructor(ScavTrap) called" << std::endl;
-	setMaxHitPoints(MAX_HP);
-	setMaxEnergyPoints(MAX_EP);
+	mMaxHitPoints = MAX_HP;
+	mMaxEnergyPoints = MAX_EP;
+	mDefaultAttackDamage = DEFAULT_AD;
 }
 
 void ScavTrap::attack(const std::string& target)

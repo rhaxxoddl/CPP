@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:22:42 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/06 21:36:11 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 12:47:37 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,24 @@ public:
 	unsigned int getHitPoints();
 	unsigned int getEnergyPoints();
 	unsigned int getAttackDamage();
-	unsigned int getMaxHitPoints();
-	unsigned int getMaxEnergyPoints();
 	void setName(std::string name);
 	void setHitPoints(unsigned int hitPoints);
 	void setEnergyPoints(unsigned int energyPoints);
 	void setAttackDamage(unsigned int attackDamage);
-	void setMaxHitPoints(unsigned int energyPoints);
-	void setMaxEnergyPoints(unsigned int energyPoints);
 	ClapTrap & operator=(ClapTrap &src);
 	~ClapTrap();
 
-private:
-	enum {MAX_HP = 10, MAX_EP = 10, DEFAULT_AD = 0};
-	std::string mName;
+protected:
+	std::string		mName;
 	unsigned int	mHitPoints;
 	unsigned int	mEnergyPoints;
 	unsigned int	mAttackDamage;
 	unsigned int	mMaxHitPoints;
 	unsigned int	mMaxEnergyPoints;
+	unsigned int	mDefaultAttackDamage;
+
+private:
+	enum {MAX_HP = 10, MAX_EP = 10, DEFAULT_AD = 0};
 };
 
  #endif
