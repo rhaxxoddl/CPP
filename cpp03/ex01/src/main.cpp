@@ -6,11 +6,12 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:30:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/08 12:49:35 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 19:37:13 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include <iostream>
 
 void PrintInfo(ScavTrap& a)
 {

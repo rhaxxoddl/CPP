@@ -13,7 +13,7 @@ public:
 	void attack(const std::string& target);
 	FragTrap & operator=(FragTrap &src);
 	~FragTrap();
-	void highFivesGuys();
+	void highFivesGuys() const;
 
 private:
 	enum {MAX_HP = 100, MAX_EP = 100, DEFAULT_AD = 30};

@@ -6,13 +6,13 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:15:26 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/08 15:07:32 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 21:24:38 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap()
+FragTrap::FragTrap()
 {
 	std::cout << "FragTrap Constructor(void) called" << std::endl;
 	mHitPoints = MAX_HP;
@@ -23,9 +23,10 @@ FragTrap::FragTrap() : ClapTrap()
 	mDefaultAttackDamage = DEFAULT_AD;
 }
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string& name)
 {
 	std::cout << "FragTrap Constructor(string) called" << std::endl;
+	mName = name;
 	mHitPoints = MAX_HP;
 	mEnergyPoints = MAX_EP;
 	mAttackDamage = DEFAULT_AD;
@@ -34,9 +35,13 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 	mDefaultAttackDamage = DEFAULT_AD;
 }
 
-FragTrap::FragTrap(FragTrap &src) : ClapTrap(src)
+FragTrap::FragTrap(FragTrap &src)
 {
 	std::cout << "FragTrap Constructor(FragTrap) called" << std::endl;
+	mName = src.mName;
+	mHitPoints = src.mHitPoints;
+	mEnergyPoints = src.mEnergyPoints;
+	mAttackDamage = src.mAttackDamage;
 	mMaxHitPoints = src.mMaxHitPoints;
 	mMaxEnergyPoints = src.mMaxEnergyPoints;
 	mDefaultAttackDamage = src.mDefaultAttackDamage;
@@ -53,7 +58,7 @@ void FragTrap::attack(const std::string& target)
 	}
 }
 
-void FragTrap::highFivesGuys(){std::cout << "FragTrap requested a high fives." << std::endl;}
+void FragTrap::highFivesGuys() const {std::cout << "FragTrap requested a high fives." << std::endl;}
 
 FragTrap & FragTrap::operator=(FragTrap &src)
 {

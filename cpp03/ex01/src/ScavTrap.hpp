@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:28:31 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/08 13:26:19 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 19:01:36 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	ScavTrap & operator=(ScavTrap &src);
 	void attack(const std::string& target);
 	~ScavTrap();
-	void guardGate();
+	void guardGate() const;
 
 private:
 	enum {MAX_HP = 100, MAX_EP = 50, DEFAULT_AD = 20};

@@ -6,13 +6,13 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:28:10 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/08 15:07:50 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/08 21:27:28 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap()
 {
 	std::cout << "ScavTrap Constructor(void) called" << std::endl;
 	mHitPoints = MAX_HP;
@@ -23,9 +23,10 @@ ScavTrap::ScavTrap() : ClapTrap()
 	mDefaultAttackDamage = DEFAULT_AD;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
+ScavTrap::ScavTrap(const std::string& name)
 {
 	std::cout << "ScavTrap Constructor(string) called" << std::endl;
+	mName = name;
 	mHitPoints = MAX_HP;
 	mEnergyPoints = MAX_EP;
 	mAttackDamage = DEFAULT_AD;
@@ -34,12 +35,16 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 	mDefaultAttackDamage = DEFAULT_AD;
 }
 
-ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src)
+ScavTrap::ScavTrap(ScavTrap &src)
 {
 	std::cout << "ScavTrap Constructor(ScavTrap) called" << std::endl;
-	mMaxHitPoints = MAX_HP;
-	mMaxEnergyPoints = MAX_EP;
-	mDefaultAttackDamage = DEFAULT_AD;
+	mName = src.mName;
+	mHitPoints = src.mHitPoints;
+	mEnergyPoints = src.mEnergyPoints;
+	mAttackDamage = src.mAttackDamage;
+	mMaxHitPoints = src.mMaxHitPoints;
+	mMaxEnergyPoints = src.mMaxEnergyPoints;
+	mDefaultAttackDamage = src.mDefaultAttackDamage;
 }
 
 void ScavTrap::attack(const std::string& target)
@@ -53,7 +58,7 @@ void ScavTrap::attack(const std::string& target)
 	}
 }
 
-void ScavTrap::guardGate(){std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;}
+void ScavTrap::guardGate() const {std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;}
 
 ScavTrap & ScavTrap::operator=(ScavTrap &src)
 {
