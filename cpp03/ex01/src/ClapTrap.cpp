@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:27:01 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/08 21:25:41 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/10 16:47:16 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(ClapTrap &src) 
 : mName(src.getName()), mHitPoints(src.getHitPoints()), mEnergyPoints(src.getEnergyPoints()), mAttackDamage(src.getAttackDamage())
 , mMaxHitPoints(src.mMaxHitPoints), mMaxEnergyPoints(src.mMaxEnergyPoints), mDefaultAttackDamage(src.mDefaultAttackDamage)
-
 {
 	std::cout << "ClapTrap Constructor(ClapTrap) called" << std::endl;
 }
