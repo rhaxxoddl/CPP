@@ -12,13 +12,22 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : type("none"){}
+WrongAnimal::WrongAnimal() : type("none")
+{
+	std::cout << "WrongAnimal Constructor(void) called" << std::endl;
+}
 
-WrongAnimal::WrongAnimal(std::string inType) : type(inType){}
+WrongAnimal::WrongAnimal(std::string inType) : type(inType)
+{
+	std::cout << "WrongAnimal Constructor(string) called" << std::endl;
+}
 
-WrongAnimal::WrongAnimal(WrongAnimal &src) : type(src.getType()){}
+WrongAnimal::WrongAnimal(WrongAnimal &src) : type(src.getType())
+{
+	std::cout << "WrongAnimal Constructor(WrongAnimal&) called" << std::endl;
+}
 
-void WrongAnimal::makeSound() const {std::cout << "?" << std::endl;}
+void WrongAnimal::makeSound() const {std::cout << "" << std::endl;}
 
 const std::string& WrongAnimal::getType() const {return type;}
 
@@ -30,4 +39,7 @@ WrongAnimal& WrongAnimal::operator=(WrongAnimal& src)
 	return *this;
 }
 
-WrongAnimal::~WrongAnimal(){}
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "WrongAnimal Destructor called" << std::endl;
+}
