@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 21:29:38 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/10 19:19:00 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/12 19:41:27 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,11 @@ class Brain
 {
 public:
 	Brain();
-	Brain(Brain& src);
-	Brain& operator=(Brain &src);
-	~Brain();
+	Brain(const Brain& src);
+	Brain& operator=(const Brain &src);
+	virtual ~Brain();
 private:
 	std::string mIdeas[IDEAS_SIZE];
 };
-
-void copyIdeas(std::string* dest, const std::string* src);
-void printIdeas(std::string* ideas);
 
 #endif

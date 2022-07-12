@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:27:01 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/10 20:22:34 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/12 19:39:21 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Animal::Animal(std::string inType) : type(inType)
 	std::cout << "Animal Constructor(string) called" << std::endl;
 }
 
-Animal::Animal(Animal &src) : type(src.getType())
+Animal::Animal(const Animal &src) : type(src.getType())
 {
 	std::cout << "Animal Constructor(Animal&) called" << std::endl;
 }
@@ -31,7 +31,9 @@ const std::string& Animal::getType() const {return type;}
 
 void Animal::setType(std::string inType){type = inType;}
 
-Animal& Animal::operator=(Animal& src)
+void Animal::makeSound() const {std::cout << "" << std::endl;}
+
+Animal& Animal::operator=(const Animal& src)
 {
 	type = src.getType();
 	return *this;
