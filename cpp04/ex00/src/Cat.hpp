@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:22:42 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/10 20:53:33 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/12 17:22:04 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ public:
 	virtual void makeSound() const;
 	Cat& operator=(Cat &);
 	virtual ~Cat();
-private:
-	/* data */
 };
 
  #endif

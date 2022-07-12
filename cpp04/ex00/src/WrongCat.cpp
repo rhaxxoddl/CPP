@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 19:34:06 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/10 19:34:08 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/12 16:02:44 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ WrongCat::WrongCat(WrongCat& src)
 	std::cout << "WrongCat Constructor(WrongCat&) called" << std::endl;
 }
 
-void WrongCat::makeSound() const {std::cout << "Meow Meow!!" << std::endl;}
+void WrongCat::makeSound() const {std::cout << "skrrrrrrrrr!!" << std::endl;}
 
 WrongCat& WrongCat::operator=(WrongCat& src)
 {
