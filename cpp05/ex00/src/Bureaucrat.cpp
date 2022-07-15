@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanjeon <sanjeon@student.42.kr>            +#+  +:+       +#+        */
+/*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:08:59 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/14 14:45:02 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/15 18:45:22 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade)
 : mName(name), mGrade(grade)
 {
-	try
-	{
-		if (grade < 1 || grade > 150)
-			throw std::out_of_range("grade의 범위를 벗어납니다.(1 ~ 150)");
-	}
-	catch(const std::out_of_range& e)
-	{
-		std::cerr << "[Exception] " << e.what() << std::endl;
-	}
+	std::cout << "Constructor called!" << std::endl;
+	if (grade > 150)
+		throw GradeTooHighException();
+	else if (grade < 1)
+		throw GradeTooLowException();
 }
 
 Bureaucrat::~Bureaucrat()
@@ -31,11 +27,22 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Distructor called!" << std::endl;
 }
 
-std::cout& std::cout::operator<<(const Bureaucrat& src)
-{
-
-}
-
 const std::string& Bureaucrat::getName() const { return mName; }
 
 unsigned int Bureaucrat::getGrade() const { return mGrade; }
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+ 	return "[ERROR]Grade too high: \nAllowed grade ranges from 1 to 150";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+ 	return "[ERROR]Grade too Low: \nAllowed grade ranges from 1 to 150";
+}
+
+std::ostream& operator<<(std::ostream &out, const Bureaucrat& src)
+{
+	out << src.getName() << ", bureaucrat grade " << src.getGrade();
+	return out;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanjeon <sanjeon@student.42.kr>            +#+  +:+       +#+        */
+/*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/14 14:45:49 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/15 18:41:11 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 #include <iostream>
 #include <string>
+#include <exception>
 
 class Bureaucrat
 {
@@ -27,8 +28,18 @@ protected:
 	unsigned int mGrade;
 	enum eGradeRange{HIGHEST = 1, LOWEST = 150};
 private:
+	struct GradeTooHighException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	
+	struct GradeTooLowException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 	/* data */
 };
-ostream& ostream::operator<<(const Bureaucrat& src);
+
+std::ostream& operator<<(std::ostream &out, const Bureaucrat& src);
 
 #endif
