@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/15 18:41:11 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/15 19:09:22 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,21 @@ public:
 	~Bureaucrat();
 	const std::string& getName() const;
 	unsigned int getGrade() const;
+	void setName(std::string& name);
+	void setGrade(unsigned int n);
+	void incrementGrade();
+	void decrementGrade();
 protected:
-	const std::string& mName;
+	std::string mName;
 	unsigned int mGrade;
 	enum eGradeRange{HIGHEST = 1, LOWEST = 150};
 private:
-	struct GradeTooHighException : public std::exception
+	class GradeTooHighException : public std::exception
 	{
 		virtual const char* what() const throw();
 	};
 	
-	struct GradeTooLowException : public std::exception
+	class GradeTooLowException : public std::exception
 	{
 		virtual const char* what() const throw();
 	};

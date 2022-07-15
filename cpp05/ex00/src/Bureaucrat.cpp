@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:08:59 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/15 18:45:22 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/15 19:56:01 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,44 @@ Bureaucrat::~Bureaucrat()
 const std::string& Bureaucrat::getName() const { return mName; }
 
 unsigned int Bureaucrat::getGrade() const { return mGrade; }
+
+void Bureaucrat::setName(std::string& name)
+{
+	mName = name;
+}
+
+void Bureaucrat::setGrade(unsigned int n)
+{
+	if (n < 1)
+		throw GradeTooLowException();
+	else if (n > 150)
+		throw GradeTooHighException();
+	mGrade = n;
+}
+
+void Bureaucrat::incrementGrade()
+{
+	try
+	{
+		setGrade(getGrade() + 1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
+
+void Bureaucrat::decrementGrade()
+{
+	try
+	{
+		setGrade(getGrade() - 1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
