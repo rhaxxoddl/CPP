@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:05:15 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/17 17:35:20 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/17 21:17:19 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,17 @@ public:
 	unsigned int getSignableGrade() const;
 	unsigned int getExecutableGrade() const;
 	void setSigned(bool sign);
+	void setSignableGrade(unsigned int signableGrade);
+	void setExecutableGrade(unsigned int actionableGrade);
 	void beSigned(const Bureaucrat& bureaucrat);
+	virtual void execute(Bureaucrat const & executor) const = 0;
 protected:
 	enum eGradeRange{HIGHESTGRADE = 1, LOWESTGRADE = 150};
+	unsigned int mExecutableGrade;
 private:
 	const std::string mName;
 	bool mSinged;
-	const unsigned int mSignableGrade;
-	const unsigned int mExecutableGrade;
+	unsigned int mSignableGrade;
 	struct GradeTooHighException : public std::exception
 	{
 		virtual const char* what() const throw();

@@ -6,23 +6,24 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:09:09 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/17 17:35:20 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/17 21:16:53 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 
-Form::Form(const std::string& name, unsigned int signableGrade, unsigned int actionableGrade)
-: mName(name), mSinged(false), mSignableGrade(signableGrade), mExecutableGrade(actionableGrade)
+Form::Form(const std::string& name, unsigned int signableGrade, unsigned int executableGrade)
+: mName(name), mSinged(false), mSignableGrade(signableGrade)
 {
+	(void)executableGrade;
 	if (signableGrade < HIGHESTGRADE)
 		throw GradeTooLowException();
 	else if (signableGrade > LOWESTGRADE)
 		throw GradeTooHighException();
-	if (actionableGrade < HIGHESTGRADE)
+	if (executableGrade < HIGHESTGRADE)
 		throw GradeTooLowException();
-	else if (actionableGrade > LOWESTGRADE)
+	else if (executableGrade > LOWESTGRADE)
 		throw GradeTooHighException();
 }
 
@@ -37,6 +38,10 @@ unsigned int Form::getSignableGrade() const { return mSignableGrade; }
 unsigned int Form::getExecutableGrade() const { return mExecutableGrade; }
 
 void Form::setSigned(bool sign) { mSinged = sign; }
+
+void Form::setSignableGrade(unsigned int signableGrade) { mSignableGrade = signableGrade; }
+
+void Form::setExecutableGrade(unsigned int executableGrade) { mExecutableGrade = executableGrade; }
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
