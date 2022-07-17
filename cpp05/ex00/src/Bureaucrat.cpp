@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:08:59 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/15 19:56:01 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/17 12:05:33 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade)
 : mName(name), mGrade(grade)
 {
 	std::cout << "Constructor called!" << std::endl;
-	if (grade > 150)
+	if (grade > LOWESTGRADE)
 		throw GradeTooHighException();
-	else if (grade < 1)
+	else if (grade < HIGHESTGRADE)
 		throw GradeTooLowException();
 }
 
@@ -38,9 +38,9 @@ void Bureaucrat::setName(std::string& name)
 
 void Bureaucrat::setGrade(unsigned int n)
 {
-	if (n < 1)
+	if (n < HIGHESTGRADE)
 		throw GradeTooLowException();
-	else if (n > 150)
+	else if (n > LOWESTGRADE)
 		throw GradeTooHighException();
 	mGrade = n;
 }

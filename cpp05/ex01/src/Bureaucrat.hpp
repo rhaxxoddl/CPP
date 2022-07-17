@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/15 20:57:27 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/17 13:42:22 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 #include <exception>
 #include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 public:
 	Bureaucrat(const std::string& name, unsigned int grade);
-	~Bureaucrat();
+	virtual ~Bureaucrat();
 	const std::string& getName() const;
 	unsigned int getGrade() const;
 	void setName(std::string& name);
@@ -32,7 +34,7 @@ public:
 protected:
 	std::string mName;
 	unsigned int mGrade;
-	enum eGradeRange{HIGHEST = 1, LOWEST = 150};
+	enum eGradeRange{HIGHESTGRADE = 1, LOWESTGRADE = 150};
 private:
 	class GradeTooHighException : public std::exception
 	{

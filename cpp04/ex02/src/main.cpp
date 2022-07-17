@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:30:19 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/12 19:43:45 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/17 13:35:11 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void FreeAnimalArray(const Animal** aAnimal)
 
 void LeakChecker()
 {
-	system("leaks ex01");
+	system("leaks ex02");
 }
 
 int main()

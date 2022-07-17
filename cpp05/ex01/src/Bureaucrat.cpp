@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:08:59 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/15 21:01:19 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/17 13:47:39 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade)
 : mName(name), mGrade(grade)
 {
 	std::cout << "Constructor called!" << std::endl;
-	if (grade > 150)
+	if (grade > LOWESTGRADE)
 		throw GradeTooHighException();
-	else if (grade < 1)
+	else if (grade < HIGHESTGRADE)
 		throw GradeTooLowException();
 }
 
@@ -38,9 +38,9 @@ void Bureaucrat::setName(std::string& name)
 
 void Bureaucrat::setGrade(unsigned int n)
 {
-	if (n < 1)
+	if (n < HIGHESTGRADE)
 		throw GradeTooLowException();
-	else if (n > 150)
+	else if (n > LOWESTGRADE)
 		throw GradeTooHighException();
 	mGrade = n;
 }
@@ -74,14 +74,14 @@ void Bureaucrat::signForm(Form& form) const
 	try
 	{
 		form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << getName() << " couldn't sign "
-		<< form.getName() << "because "
+		<< form.getName() << " because "
 		<< e.what() << std::endl;
 	}
-	std::cout << getName() << " signed " << form.getName() << std::endl;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

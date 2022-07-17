@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/15 19:09:22 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/17 12:04:29 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 protected:
 	std::string mName;
 	unsigned int mGrade;
-	enum eGradeRange{HIGHEST = 1, LOWEST = 150};
+	enum eGradeRange{HIGHESTGRADE = 1, LOWESTGRADE = 150};
 private:
 	class GradeTooHighException : public std::exception
 	{
