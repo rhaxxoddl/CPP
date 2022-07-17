@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/17 13:42:22 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/18 08:23:45 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@ class Form;
 class Bureaucrat
 {
 public:
+	Bureaucrat();
 	Bureaucrat(const std::string& name, unsigned int grade);
+	Bureaucrat(const Bureaucrat& src);
+	const Bureaucrat& operator=(const Bureaucrat& src);
 	virtual ~Bureaucrat();
 	const std::string& getName() const;
 	unsigned int getGrade() const;
-	void setName(std::string& name);
-	void setGrade(unsigned int n);
+	void setName(const std::string& name);
+	void setGrade(const unsigned int n);
 	void incrementGrade();
 	void decrementGrade();
 	void signForm(Form& form) const;
