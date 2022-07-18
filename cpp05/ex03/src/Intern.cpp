@@ -2,10 +2,16 @@
 
 Intern::Intern(){}
 
+Form* makeShrubberyForm(const std::string& formTarget) { return new ShrubberyCreationForm(formTarget); }
+
+Form* makeRobotomyForm(const std::string& formTarget) { return new RobotomyRequestForm(formTarget); }
+
+Form* makePresidentialForm(const std::string& formTarget) { return new PresidentialPardonForm(formTarget); }
 
 Form* Intern::makeForm(const std::string& formName, const std::string& formTarget)
 {
 	std::string formArray[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	Form* (*formConstructorArray[3])(const std::string&) = {makeShrubberyForm, makeRobotomyForm, makePresidentialForm};
 	int i = -1;
 	while (++i < FORM_NUM)
 		if (!formArray[i].compare(formName))
@@ -13,20 +19,10 @@ Form* Intern::makeForm(const std::string& formName, const std::string& formTarge
 	Form* outForm;
 	try
 	{
-		switch (i)
-		{
-			case 0:
-				outForm = new ShrubberyCreationForm(formTarget);
-				break;
-			case 1:
-				outForm = new RobotomyRequestForm(formTarget);
-				break;
-			case 2:
-				outForm = new PresidentialPardonForm(formTarget);
-				break;
-			default:
-				throw NotExistFormException();
-		}
+		if (i < 3)
+			outForm = (*formConstructorArray[i])(formTarget);
+		else
+			throw NotExistFormException();
 	}
 	catch(const NotExistFormException& e) 
 	{
