@@ -1,15 +1,18 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 # include "Form.hpp"
+# include <fstream>
 
 class ShrubberyCreationForm : public Form
 {
 public:
-	ShrubberyCreationForm(const std::string& name, unsigned int signableGrade, unsigned int actionableGrade);
+	ShrubberyCreationForm(const std::string& name);
+	ShrubberyCreationForm(const ShrubberyCreationForm& src);
+	const ShrubberyCreationForm& operator=(const ShrubberyCreationForm& src);
 	virtual ~ShrubberyCreationForm();
-	virtual void execute(Bureaucrat const& executor);
+	virtual void execute(Bureaucrat const& executor) const;
 private:
-	/* data */
+	enum {SIGNABLE_GRADE = 145, EXECUTABLE_GRADE = 137};
 };
 
 
