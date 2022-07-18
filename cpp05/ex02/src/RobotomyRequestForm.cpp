@@ -4,10 +4,6 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& name)
 : Form(name, SIGNABLE_GRADE, EXECUTABLE_GRADE)
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
-: Form(src.getName(), SIGNABLE_GRADE, EXECUTABLE_GRADE)
-{}
-
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {
 	executable(executor);
@@ -22,6 +18,11 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
 RobotomyRequestForm::RobotomyRequestForm() {}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
+: Form(src.getName(), SIGNABLE_GRADE, EXECUTABLE_GRADE)
+{}
+
 const RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& src)
 {
 	setSigned(src.getSigned());

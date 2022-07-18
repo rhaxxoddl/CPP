@@ -6,20 +6,37 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:08:59 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/17 12:05:33 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/18 19:21:30 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat()
+: mName("Bureaucrat"), mGrade(LOWESTGRADE)
+{}
+
 Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade)
 : mName(name), mGrade(grade)
 {
-	std::cout << "Constructor called!" << std::endl;
 	if (grade > LOWESTGRADE)
 		throw GradeTooHighException();
 	else if (grade < HIGHESTGRADE)
 		throw GradeTooLowException();
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& src)
+: mName(src.mName), mGrade(src.mGrade)
+{}
+
+const Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
+{
+	if (this != &src)
+	{
+		setName(src.getName());
+		setGrade(src.getGrade());
+	}
+	return *this;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -31,12 +48,12 @@ const std::string& Bureaucrat::getName() const { return mName; }
 
 unsigned int Bureaucrat::getGrade() const { return mGrade; }
 
-void Bureaucrat::setName(std::string& name)
+void Bureaucrat::setName(const std::string& name)
 {
 	mName = name;
 }
 
-void Bureaucrat::setGrade(unsigned int n)
+void Bureaucrat::setGrade(const unsigned int n)
 {
 	if (n < HIGHESTGRADE)
 		throw GradeTooLowException();

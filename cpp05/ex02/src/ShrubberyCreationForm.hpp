@@ -7,12 +7,12 @@ class ShrubberyCreationForm : public Form
 {
 public:
 	ShrubberyCreationForm(const std::string& name);
-	ShrubberyCreationForm(const ShrubberyCreationForm& src);
 	virtual ~ShrubberyCreationForm();
 	virtual void execute(Bureaucrat const& executor) const;
 private:
 	enum {SIGNABLE_GRADE = 145, EXECUTABLE_GRADE = 137};
 	ShrubberyCreationForm();
+	ShrubberyCreationForm(const ShrubberyCreationForm& src);
 	const ShrubberyCreationForm& operator=(const ShrubberyCreationForm& src);
 };
 

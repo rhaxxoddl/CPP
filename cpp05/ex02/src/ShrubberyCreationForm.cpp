@@ -4,10 +4,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& name)
 : Form(name, SIGNABLE_GRADE, EXECUTABLE_GRADE)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src)
-: Form(src.getName(), SIGNABLE_GRADE, EXECUTABLE_GRADE)
-{}
-
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	executable(executor);
@@ -60,6 +56,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm() {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src)
+: Form(src.getName(), SIGNABLE_GRADE, EXECUTABLE_GRADE)
+{}
 
 const ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src)
 {

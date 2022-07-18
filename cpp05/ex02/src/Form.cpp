@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:09:09 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/18 09:03:37 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/18 19:21:59 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ unsigned int Form::getSignableGrade() const { return mSignableGrade; }
 
 unsigned int Form::getExecutableGrade() const { return mExecutableGrade; }
 
-void Form::setSigned(bool sign) { mSinged = sign; }
+void Form::setSigned(const bool sign) { mSinged = sign; }
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {

@@ -4,11 +4,6 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& name)
 : Form(name, SIGNABLE_GRADE, EXECUTABLE_GRADE)
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src)
-: Form(src.getName(), SIGNABLE_GRADE, EXECUTABLE_GRADE)
-{}
-
-
 void PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {
 	executable(executor);
@@ -18,6 +13,10 @@ void PresidentialPardonForm::execute(Bureaucrat const& executor) const
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
 PresidentialPardonForm::PresidentialPardonForm() {}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src)
+: Form(src.getName(), SIGNABLE_GRADE, EXECUTABLE_GRADE)
+{}
 
 const PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& src)
 {
