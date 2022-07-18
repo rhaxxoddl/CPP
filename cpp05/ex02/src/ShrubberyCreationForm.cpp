@@ -8,13 +8,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src)
 : Form(src.getName(), SIGNABLE_GRADE, EXECUTABLE_GRADE)
 {}
 
-const ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src)
-{
-	if (this != &src)
-		Form::operator=(src);
-	return *this;
-}
-
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	executable(executor);
@@ -65,3 +58,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
+
+ShrubberyCreationForm::ShrubberyCreationForm() {}
+
+const ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src)
+{
+	setSigned(src.getSigned());
+	return *this;
+}

@@ -6,38 +6,65 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:42:56 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/18 09:05:37 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/18 14:22:55 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	Bureaucrat a("a", 20);
+	Bureaucrat a("a", 1);
 	Bureaucrat b("b", 60);
-	Bureaucrat c("c", 120);
-	ShrubberyCreationForm form("ShrubberyCreationForm");
-	ShrubberyCreationForm* d;
-	ShrubberyCreationForm e("E");
+	Bureaucrat c("c", 140);
+	ShrubberyCreationForm shru("ShrubberyCreationForm");
+	RobotomyRequestForm robo("RobotomyRequestForm");
+	PresidentialPardonForm pres("PresidentialPardonForm");
 
-	d = new ShrubberyCreationForm("D");
-	b.signForm(*d);
-	a.executeForm(*d);
 	std::cout << "==============Initialize==============" << std::endl;
-	std::cout << a << std::endl << b << std::endl << c << std::endl << form << std::endl;
-	std::cout << "============== C[120] ----signed---> form[70] ==============" << std::endl;
-	c.signForm(form);
-	std::cout << form << std::endl;
-	std::cout << "============== B[60] ----signed---> form[70] ==============" << std::endl;
-	b.signForm(form);
-	std::cout << form << std::endl;
-	std::cout << "==============form reset==============" << std::endl;
-	form.setSigned(false);
-	std::cout << form << std::endl;
-	std::cout << "============== A[20] ----signed---> form[70] ==============" << std::endl;
-	a.signForm(form);
-	std::cout << form << std::endl;
+	std::cout << a << std::endl << b << std::endl << c << std::endl << shru << std::endl << robo << std::endl << pres << std::endl;
+	std::cout << "============== C[140] ----signed---> shru[145], robo[72], pres[25] ==============" << std::endl;
+	c.signForm(shru);
+	c.signForm(robo);
+	c.signForm(pres);
+	std::cout << shru << std::endl << robo << std::endl << pres << std::endl;
+	std::cout << "============== C[140] ----execute---> shru[137], robo[45], pres[5] ==============" << std::endl;
+	c.executeForm(shru);
+	c.executeForm(robo);
+	c.executeForm(pres);
+	std::cout << "==============Reset==============" << std::endl;
+	shru.setSigned(false);
+	robo.setSigned(false);
+	pres.setSigned(false);
+	std::cout << shru << std::endl << robo << std::endl << pres << std::endl;
+	std::cout << "============== B[60] ----signed---> shru[145], robo[72], pres[25] ==============" << std::endl;
+	b.signForm(shru);
+	b.signForm(robo);
+	b.signForm(pres);
+	std::cout << "============== B[60] ----execute---> shru[137], robo[45], pres[5] ==============" << std::endl;
+	b.executeForm(shru);
+	b.executeForm(robo);
+	b.executeForm(pres);
+	std::cout << "==============Reset==============" << std::endl;
+	shru.setSigned(false);
+	robo.setSigned(false);
+	pres.setSigned(false);
+	std::cout << shru << std::endl << robo << std::endl << pres << std::endl;
+	std::cout << "============== A[1] ----signed---> shru[145], robo[72], pres[25] ==============" << std::endl;
+	a.signForm(shru);
+	a.signForm(robo);
+	a.signForm(pres);
+	std::cout << "============== A[1] ----execute---> shru[137], robo[45], pres[5] ==============" << std::endl;
+	a.executeForm(shru);
+	a.executeForm(robo);
+	a.executeForm(pres);
+	std::cout << "==============Reset==============" << std::endl;
+	shru.setSigned(false);
+	robo.setSigned(false);
+	pres.setSigned(false);
+	std::cout << shru << std::endl << robo << std::endl << pres << std::endl;
 	return 0;
 }

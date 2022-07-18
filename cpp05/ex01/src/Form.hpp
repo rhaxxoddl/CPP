@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:05:15 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/18 08:21:53 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/18 13:35:46 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ class Bureaucrat;
 class Form
 {
 public:
-	Form();
 	Form(const std::string& name, unsigned int signableGrade, unsigned int actionableGrade);
 	Form(const Form& src);
-	const Form& operator=(const Form& src);
 	virtual ~Form();
 	const std::string& getName() const;
 	bool getSigned() const;
@@ -48,7 +46,8 @@ private:
 	{
 		virtual const char* what() const throw();
 	};
-	
+	Form();
+	const Form& operator=(const Form& src);
 };
 
 std::ostream& operator<<(std::ostream &out, const Form& src);
