@@ -6,19 +6,25 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:42:56 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/17 11:58:31 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/18 09:05:37 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
 	Bureaucrat a("a", 20);
 	Bureaucrat b("b", 60);
 	Bureaucrat c("c", 120);
-	Form form("form", 70, 50);
+	ShrubberyCreationForm form("ShrubberyCreationForm");
+	ShrubberyCreationForm* d;
+	ShrubberyCreationForm e("E");
 
+	d = new ShrubberyCreationForm("D");
+	b.signForm(*d);
+	a.executeForm(*d);
 	std::cout << "==============Initialize==============" << std::endl;
 	std::cout << a << std::endl << b << std::endl << c << std::endl << form << std::endl;
 	std::cout << "============== C[120] ----signed---> form[70] ==============" << std::endl;

@@ -1,4 +1,4 @@
-TARGET		=	ex01
+TARGET		=	ex02
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
@@ -7,7 +7,8 @@ INC			=	-I $(SRCS_DIR)
 SRCS_DIR	=	./src/
 SRCS_NAME	=	main.cpp\
 				Bureaucrat.cpp\
-				Form.cpp
+				Form.cpp\
+				ShrubberyCreationForm.cpp
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS_DIR	=	./obj/
 OBJS_NAME	=	$(SRCS_NAME:.cpp=.o)
