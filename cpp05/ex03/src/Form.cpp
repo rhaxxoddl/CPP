@@ -6,15 +6,11 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:09:09 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/18 18:41:32 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/19 07:18:33 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-Form::Form()
-: mName("Form"), mSinged(false), mSignableGrade(LOWESTGRADE), mExecutableGrade(LOWESTGRADE)
-{}
 
 Form::Form(const std::string& name, unsigned int signableGrade, unsigned int executableGrade)
 : mName(name), mSinged(false), mSignableGrade(signableGrade), mExecutableGrade(executableGrade)
@@ -27,22 +23,6 @@ Form::Form(const std::string& name, unsigned int signableGrade, unsigned int exe
 		throw GradeTooLowException();
 	else if (executableGrade > LOWESTGRADE)
 		throw GradeTooHighException();
-}
-
-Form::Form(const Form& src)
-: mName(src.mName), mSinged(src.mSinged), mSignableGrade(src.mSignableGrade), mExecutableGrade(src.mExecutableGrade)
-{}
-
-const Form& Form::operator=(const Form& src)
-{
-	if (this != &src)
-	{
-		*(const_cast<std::string*>(&mName)) = src.getName();
-		*(const_cast<bool*>(&mSinged)) = src.getSigned();
-		*(const_cast<unsigned int*>(&mSignableGrade)) = src.getSignableGrade();
-		*(const_cast<unsigned int*>(&mExecutableGrade)) = src.getExecutableGrade();
-	}
-	return *this;
 }
 
 Form::~Form(){}
@@ -85,6 +65,26 @@ void Form::executable(const Bureaucrat& bureaucrat) const
 		throw UnsignedFormException();
 	if (bureaucrat.getGrade() > getExecutableGrade())
 		throw GradeTooLowException();
+}
+
+Form::Form()
+: mName("Form"), mSinged(false), mSignableGrade(LOWESTGRADE), mExecutableGrade(LOWESTGRADE)
+{}
+
+Form::Form(const Form& src)
+: mName(src.mName), mSinged(src.mSinged), mSignableGrade(src.mSignableGrade), mExecutableGrade(src.mExecutableGrade)
+{}
+
+const Form& Form::operator=(const Form& src)
+{
+	if (this != &src)
+	{
+		*(const_cast<std::string*>(&mName)) = src.getName();
+		*(const_cast<bool*>(&mSinged)) = src.getSigned();
+		*(const_cast<unsigned int*>(&mSignableGrade)) = src.getSignableGrade();
+		*(const_cast<unsigned int*>(&mExecutableGrade)) = src.getExecutableGrade();
+	}
+	return *this;
 }
 
 std::ostream& operator<<(std::ostream &out, const Form& src)

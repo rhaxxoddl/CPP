@@ -12,9 +12,6 @@ class Intern
 public:
 	Intern();
 	~Intern();
-	// Form* makeShrubberyForm(const std::string& formTarget);
-	// Form* makeRobotomyForm(const std::string& formTarget);
-	// Form* makePresidentialForm(const std::string& formTarget);
 	Form* makeForm(const std::string& formName, const std::string& formTarget);
 	class NotExistFormException : public std::exception
 	{
