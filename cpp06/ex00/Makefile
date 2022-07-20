@@ -6,7 +6,7 @@ INC			=	-I $(SRCS_DIR)
 
 SRCS_DIR	=	./src/
 SRCS_NAME	=	main.cpp\
-				Bureaucrat.cpp
+				Conversion.cpp
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_NAME))
 OBJS_DIR	=	./obj/
 OBJS_NAME	=	$(SRCS_NAME:.cpp=.o)

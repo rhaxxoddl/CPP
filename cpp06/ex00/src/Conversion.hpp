@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/19 20:29:43 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/20 19:35:25 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,26 @@
 # define CONVERSION_HPP
 # include <string>
 # include <iostream>
+# include <locale>
+# include <limits>
 
 class Conversion
 {
 public:
 	Conversion(const std::string& str);
 	~Conversion();
-	void convertValue(const std::string& str);
-	void convertChar(const std::string& str);
-	void convertInt(const std::string& str);
-	void convertFloat(const std::string& str);
-	void convertDouble(const std::string& str);
+	unsigned int getStatus() const;
+	double getValue() const;
+	const std::string& getString() const;
+	void convertChar() const;
+	void convertInt() const;
+	void convertFloat() const;
+	void convertDouble() const;
 private:
-	enum {DISPLAYABLE, IMPOSSIBLE, NONDISPLAYABLE};
+	enum eStatus {POSSIBLE, IMPOSSIBLE};
 	std::string mString;
 	double mValue;
+	unsigned int mStatus;
 	Conversion();
 	Conversion(const Conversion& src);
 	Conversion& operator=(const Conversion& src);
