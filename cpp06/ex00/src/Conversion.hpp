@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/20 19:35:25 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/21 14:45:50 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Conversion
 {
 public:
 	Conversion(const std::string& str);
-	~Conversion();
+	virtual ~Conversion();
 	unsigned int getStatus() const;
 	double getValue() const;
 	const std::string& getString() const;

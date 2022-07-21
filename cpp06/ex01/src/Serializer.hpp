@@ -6,7 +6,7 @@
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:09:02 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/21 13:45:24 by sanjeon          ###   ########.fr       */
+/*   Updated: 2022/07/21 14:45:41 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Serializer
 {
 public:
 	Serializer();
-	~Serializer();
+	virtual ~Serializer();
 	uintptr_t serialize(Data* ptr);
 	Data* deserialize(uintptr_t raw);
 private:
