@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanjeon <sanjeon@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 13:42:56 by sanjeon           #+#    #+#             */
-/*   Updated: 2022/07/21 13:18:59 by sanjeon          ###   ########.fr       */
+/*   Created: 2022/07/13 19:08:59 by sanjeon           #+#    #+#             */
+/*   Updated: 2022/07/21 13:36:25 by sanjeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#include "Serializer.hpp"
 
-int main(int argc, char* argv[])
-{
-	if (argc != 2)
-	{
-		std::cerr << "[ERROR] Invalid parameter!" << std::endl;
-		return 1;
-	}
-	Conversion a(argv[1]);
-	a.convertChar();
-	a.convertInt();
-	a.convertFloat();
-	a.convertDouble();
-	return 0;
-}
+
+Serializer::Serializer() {}
+
+Serializer::~Serializer() {}
+
+uintptr_t Serializer::serialize(Data* ptr) { return reinterpret_cast<uintptr_t>(ptr); }
+
+Data* Serializer::deserialize(uintptr_t raw) { return reinterpret_cast<Data*>(raw); }
